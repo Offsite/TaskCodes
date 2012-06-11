@@ -24,6 +24,12 @@ Ext.define("TaskCodes.controller.NewProjController", {
 	onStartNewProjCommand: function()
 	{
 		console.log('onStartNewProjCommand');
+        var newProjView = this.getNewProjView;
+        var newProject = Ext.create('TaskCodes.store.projectStore');
+        var newValues = newProjView.getValues();
+        newProject.set('name', newValues.name);
+        newProject.set('client', newValues.client);
+        newProject.set('projnumber', newValues.projnumber);
 		this.activateSetArea();
 		
 	},
@@ -36,6 +42,5 @@ Ext.define("TaskCodes.controller.NewProjController", {
 	{
 		this.callParent(arguments);
 		console.log('initialize NewProjController');
-		var newProject = Ext.create('TaskCodes.
-	},
+	}
 });
