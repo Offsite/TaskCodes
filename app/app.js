@@ -10,9 +10,9 @@ var setup = function()
 	Ext.application({
 		name: 'TaskCodes',
 		
-		models: ['arealistModel', 'craftslistModel', 'taskcodeModel', 'tasklistModel', 'worktypelistModel'],
+		models: ['arealistModel', 'craftslistModel', 'taskcodeModel', 'tasklistModel', 'worktypelistModel', 'projectModel'],
 		views: ['newproj', 'setareas', 'workid', 'gentaskcode', 'addarea'],
-		stores: ['taskcodeStore','arealistStore','worktypelistStore','craftslistStore','tasklistStore'],
+		stores: ['taskcodeStore','arealistStore','worktypelistStore','craftslistStore','tasklistStore', 'projectModel'],
 		controllers: ['NewProjController', 'SetAreasController', 'GenTaskCodeController'],
 		launch: function()
 		{
