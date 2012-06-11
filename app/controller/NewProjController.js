@@ -1,4 +1,4 @@
-﻿Ext.define("TaskCodes.controller.NewProjController", {
+Ext.define("TaskCodes.controller.NewProjController", {
 	extend: "Ext.app.Controller",
 	config: 
 	{

@@ -1,11 +1,11 @@
-﻿var setup = function()
+var setup = function()
 {
 	Ext.Loader.setConfig({
-	    enabled: true,
-	    paths:
-	    {
+        enabled: true,
+        paths:
+        {
 			'Ext.ux.touch.grid': './lib/Grid-Component/Ext.ux.touch.grid'
-	    }
+        }
 	});
 	Ext.application({
 		name: 'TaskCodes',
@@ -22,8 +22,7 @@
 			var newProjView = {xtype: 'newproj'};
 			var setAreasView = {xtype: 'setareas'};
 			var genTaskCodeView = {xtype: 'gentaskcode'};
-					
-			Ext.Viewport.add([newProjView, setAreasView, genTaskCodeView]);
+            Ext.Viewport.add([newProjView, setAreasView, genTaskCodeView]);
 		}
 	});
 };
