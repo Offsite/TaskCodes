@@ -36,6 +36,6 @@ Ext.define("TaskCodes.controller.NewProjController", {
 	{
 		this.callParent(arguments);
 		console.log('initialize NewProjController');
-	//	var newProject = Ext.create('TaskCodes.
+		var newProject = Ext.create('TaskCodes.
 	},
 });
