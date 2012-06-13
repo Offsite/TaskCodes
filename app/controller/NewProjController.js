@@ -5,6 +5,7 @@ Ext.define("TaskCodes.controller.NewProjController", {
 		refs: 
 		{
 			newProjView: "newproj",
+            newProjData: '#projData',
 			setAreaView: 'setareas'
             
 		},
@@ -27,7 +28,7 @@ Ext.define("TaskCodes.controller.NewProjController", {
 		console.log('onStartNewProjCommand');
         var newProjView = this.getNewProjView;
        // var newProject = Ext.create('TaskCodes.store.projectStore');
-        var test = newProjView.getRecord();
+        var test = newProjData.getRecord();
         var newValues = newProjView.getValues();
         alert(newValues.name);
         //newProject.set('name', newValues.name);
