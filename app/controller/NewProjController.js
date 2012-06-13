@@ -5,7 +5,8 @@ Ext.define("TaskCodes.controller.NewProjController", {
 		refs: 
 		{
 			newProjView: "newproj",
-			setAreaView: 'setareas'
+			setAreaView: 'setareas',
+            
 		},
 		control:
 		{
@@ -25,12 +26,12 @@ Ext.define("TaskCodes.controller.NewProjController", {
 	{
 		console.log('onStartNewProjCommand');
         var newProjView = this.getNewProjView;
-      //  var newProject = Ext.create('TaskCodes.store.projectStore');
+       // var newProject = Ext.create('TaskCodes.store.projectStore');
         var newValues = newProjView.getValues();
         alert(newValues.name);
-       // newProject.set('name', newValues.name);
-    //    newProject.set('client', newValues.client);
-     //   newProject.set('projnumber', newValues.projnumber);
+        newProject.set('name', newValues.name);
+        newProject.set('client', newValues.client);
+        newProject.set('projnumber', newValues.projnumber);
 		this.activateSetArea();
 		
 	},

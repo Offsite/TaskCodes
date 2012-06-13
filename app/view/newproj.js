@@ -1,5 +1,6 @@
 Ext.define('TaskCodes.view.newproj', {
-	extend: 'Ext.Panel',
+	extend: 'Ext.form.Panel',
+    requires: 'Ext.form.FieldSet',
 	alias: 'widget.newproj',
 	config: 
 	{
@@ -32,21 +33,25 @@ Ext.define('TaskCodes.view.newproj', {
 				xtype: 'fieldset',
                 title: 'Some Initial Information',
                 instructions: 'Tell me a bit about your new project',
+                id: 'projData',
                 items: 
                 [
                     {
                         xtype: 'textfield',
                         name: 'projectName',
+                        placeHolder: 'Ex. ABC Tank Installation',
                         label: 'Project Name:'
                     },
                     {
                         xtype: 'textfield',
                         name: 'client',
+                        placeHolder: 'Ex. XYZ Industries',
                         label: 'Client:'
                     },
                     {
                         xtype: 'textfield',
                         name: 'projectNumber',
+                        placeHold: 'Ex. KAM0YY-XXX',
                         label: 'Project Number:'
                     }
                 ]
