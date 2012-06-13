@@ -70,8 +70,6 @@ Ext.define('TaskCodes.view.newproj', {
 	onStartProjButton: function()
 	{
         console.log('startNewProjCommand');
-        var formdata = TaskCodes.view.newproj.getValues();
-        alert(formdata.name);
 		this.fireEvent('startNewProjCommand', this);
 	}
 });
