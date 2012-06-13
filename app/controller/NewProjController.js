@@ -29,8 +29,8 @@ Ext.define("TaskCodes.controller.NewProjController", {
         var newProjView = this.getNewProjView;
         var newProjData = this.getNewProjData;
        // var newProject = Ext.create('TaskCodes.store.projectStore');
-        var test = newProjData.getRecord();
-        var newValues = newProjView.getValues();
+    //    var test = newProjData.getRecord();
+        var newValues = newProjData.getValues();
         alert(newValues.name);
         //newProject.set('name', newValues.name);
         //newProject.set('client', newValues.client);
