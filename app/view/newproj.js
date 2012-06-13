@@ -4,6 +4,7 @@ Ext.define('TaskCodes.view.newproj', {
 	alias: 'widget.newproj',
 	config: 
 	{
+        scrollable: 'vertical',
 		items:
 		[		
 			{
