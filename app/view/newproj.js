@@ -51,7 +51,7 @@ Ext.define('TaskCodes.view.newproj', {
                     {
                         xtype: 'textfield',
                         name: 'projectNumber',
-                        placeHold: 'Ex. KAM0YY-XXX',
+                        placeHolder: 'Ex. KAM0YY-XXX',
                         label: 'Project Number:'
                     }
                 ]
