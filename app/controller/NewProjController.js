@@ -29,11 +29,13 @@ Ext.define("TaskCodes.controller.NewProjController", {
         var newProjView = this.getNewProjView();
 //        var newProject = Ext.create('TaskCodes.store.projectStore');
         var newValues = newProjView.getValues();
-        console.log('The new project is called ', newValues.projectName, '.');
-        console.log('The client is ', newValues.client, '.');
-        console.log('The project number is ', newValues.projectNumber, '.');
-        alert(newValues.projectName);
-/*        newProject.set('name', newValues.name);
+        console.log('The new project is', newValues.projectName);
+        console.log('The client is', newValues.client);
+        console.log('The project numbers is', newValues.projectNumber);
+/*      alert('The new project is ' + newValues.projectName);
+        alert('The client is ' + newValues.client);
+        alert('The project numbers is ' + newValues.projectNumber);
+        newProject.set('name', newValues.name);
         newProject.set('client', newValues.client);
         newProject.set('projnumber', newValues.projnumber);
 */		this.activateSetArea();

@@ -1,60 +1,82 @@
-﻿		onItemDisclosure: function()
+Ext.define('TaskCodes.view.editarea', {
+    extend: 'Ext.form.Panel',
+	alias: 'widget.editarea',
+	config: 
+	{
+  /*      showAnimation: 
 		{
-			if(!this.detailsPanel) 
-			{
-				this.detailsPanel = Ext.Viewport.add({
-					xtype: 'panel',
-					right: 75,
-					top: 200,
-					modal: true,
-					height: 200,
-					width: 400,
-					scrollable: true,
-					hideOnMaskTap: true,
-					layout: 'fit',
-					showAnimation: 
-					{
-						type: 'popIn',
-						duration: 250,
-						easing: 'easy-out'
-					},
-					hideAnimation: 
-					{
-						type: 'popOut',
-						duration: 250,
-						easing: 'ease-out'
-					},
-					items: 
-					[
-						{
-							xtype: 'toolbar',
-							docked: 'top',
-							title: 'Edit Area',
-							items: 
-							[
-								{
-									xtype: 'spacer'
-								},
-								{
-									xtype: 'button',
-									ui: 'confirm',
-									text: 'Done'
-								}
-							]
-						},
-						{
-							xtype: 'formpanel',
-							items: 
-							[
-								{
-									xtype: 'textareafield',
-									name: 'areaDescription',
-									label: 'Desription'
-								}
-							]
-						}
-					]
-				});
-			}
-			this.detailsPanel.show();
+			type: 'slide',
+            direction: 'left'
 		},
+			hideAnimation: 
+		{
+			type: 'slide',
+            direction: 'right'
+		},
+*/		items: 
+		[
+		    {
+        		xtype: 'titlebar',
+        		docked: 'top',
+        		title: '..::Task Codes::..',
+                items: 
+        		[
+                    {
+                        xtype: 'button',
+                        ui: 'confirm',
+                        align: 'right',
+                        text: 'Save',
+                        iconCls: 'action',
+                        iconMask: true,
+                        itemId: 'editAreaSaveButton'
+                    },
+                    {
+                        xtype: 'button',
+                        ui: 'decline',
+                        align: 'left',
+                        text: 'Cancel',
+                        iconCls: 'trash',
+                        iconMask: true,
+                        itemId: 'editAreaCancelButton'
+                    }
+        		]
+        	},
+            {
+    			xtype: 'fieldset',
+				items: 
+				[
+					{
+						xtype: 'textfield',
+                        placeHolder: "This Shouldn't be here, there has been an error.",
+						name: 'areaDescription',
+						label: 'Desription'
+					}
+				]
+            }
+		],
+        scrollable: 'false',
+		listeners:
+		[
+			{
+				delegate: '#editAreaSaveButton',
+				event: 'tap',
+				fn: 'onEditAreaSaveTap'
+			},
+			{
+				delegate: '#editAreaCancelButton',
+				event: 'tap',
+				fn: 'onEditAreaCancelTap'
+			}
+		]
+	},
+	onEditAreaSaveTap: function()
+	{
+		console.log('editAreaSaveCommand');
+		this.fireEvent('editAreaSaveCommand', this);
+	},
+	onEditAreaCancelTap: function()
+	{
+		console.log('editAreaCancelCommand');
+		this.fireEvent('editAreaCancelCommand', this);
+	}
+});

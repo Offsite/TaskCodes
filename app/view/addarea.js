@@ -1,4 +1,4 @@
-﻿Ext.define('TaskCodes.view.addarea', {
+Ext.define('TaskCodes.view.addarea', {
 	extend: 'Ext.Panel',
 	alias: 'widget.addarea',
 	config: 
@@ -6,10 +6,9 @@
 		layout: 'fit',
 		modal: true,
 		centered: true,
-		width: 600,
-		height: 400,
+		width: 500,
+		height: 120,
 		scrollable: false,
-//		hideOnMaskTap: true,
 		showAnimation: 
 		{
 			type: 'popIn',
@@ -30,6 +29,12 @@
 				title: 'Add An Area',
 				items: 
 				[
+                    {
+						xtype: 'button',
+						ui: 'decline',
+						text: 'Cancel',
+						itemId: 'addareaCancelButton'
+					},
 					{
 						xtype: 'spacer'
 					},
@@ -42,12 +47,13 @@
 				]
 			},
 			{
-				xtype: 'formpanel',
+				xtype: 'fieldset',
 				items: 
 				[
 					{
-						xtype: 'textareafield',
+						xtype: 'textfield',
 						name: 'areaDescription',
+                        placeHolder: 'Ex. Steam Tracing',
 						label: 'Desription'
 					}
 				]
@@ -59,12 +65,22 @@
 				delegate: '#addareaDoneButton',
 				event: 'tap',
 				fn: 'onAddAreaDoneButtonTap'
-			}
+			},
+            {
+                delegate: '#addareaCancelButton',
+                event: 'tap',
+                fn: 'onAddAreaCancelButtonTap'
+            }
 		]
 	},
 	onAddAreaDoneButtonTap: function()
 	{
 		console.log('addAreaDoneCommand');
 		this.fireEvent('addAreaDoneCommand', this);
-	}
+	},
+    onAddAreaCancelButtonTap: function()
+    {
+        console.log('addAreaCancelCommand');
+        this.fireEvent('addAreaCancelCommand');
+    }
 });
