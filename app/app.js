@@ -11,7 +11,7 @@ var setup = function()
 		name: 'TaskCodes',
 		
 		models: ['arealistModel', 'craftslistModel', 'taskcodeModel', 'tasklistModel', 'worktypelistModel', 'projectModel'],
-		views: ['newproj', 'setareas', 'workid', 'gentaskcode', 'addarea', 'editarea'],
+		views: ['newproj', 'setareas', 'workid', 'gentaskcode', 'addarea', 'editarea', 'addtaskcode'],
 		stores: ['taskcodeStore','arealistStore','worktypelistStore','craftslistStore','tasklistStore', 'projectStore'],
 		controllers: ['NewProjController', 'SetAreasController', 'GenTaskCodeController'],
 		launch: function()
@@ -23,7 +23,8 @@ var setup = function()
 			var setAreasView = {xtype: 'setareas'};
 			var genTaskCodeView = {xtype: 'gentaskcode'};
             var editAreaView = {xtype: 'editarea'};
-            Ext.Viewport.add([newProjView, setAreasView, genTaskCodeView, editAreaView]);
+            var addTaskCodeView = {xtype: 'addtaskcode'};
+            Ext.Viewport.add([newProjView, setAreasView, genTaskCodeView, editAreaView, addTaskCodeView]);
 		}
 	});
 };

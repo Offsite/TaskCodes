@@ -1,4 +1,4 @@
-﻿Ext.define('TaskCodes.view.gentaskcode', {
+Ext.define('TaskCodes.view.gentaskcode', {
 	extend: 'Ext.Panel',
 	alias: 'widget.gentaskcode',
 	requires: ['Ext.ux.touch.grid.View'],
@@ -109,6 +109,6 @@
 	onGentaskcodeSaveTap: function()
 	{
 		console.log('gentaskcodeSaveCommand');
-		this.fireEvent('gentaskcodeAddCommand', this);
+		this.fireEvent('gentaskcodeSaveCommand', this);
 	}
 });
