@@ -19,7 +19,8 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
             addTaskCodeView:
             {
                 addTaskCodeDoneCommand: 'onAddTaskCodeDoneCommand',
-                addTaskCodeCommand: 'onAddTaskCodeCommand'
+                addTaskCodeCommand: 'onAddTaskCodeCommand',
+                addTaskCodeDeleteCodeCommand: 'onAddTaskCodeDeleteCodeCommand'
             }
 		}
 	},
@@ -34,6 +35,10 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         var addTaskCodeView = this.getAddTaskCodeView();
     	Ext.Viewport.animateActiveItem(addTaskCodeView, {type: 'slide', direction: 'left'});
 	},
+    onAddTaskCodeDeleteCodeCommand: function()
+    {
+        console.log('onAddTaskCodeDeleteCodeCommand');
+    },
     onAddTaskCodeDoneCommand: function()
     {
         console.log('onAddTaskCodeDoneCommand');

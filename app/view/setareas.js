@@ -1,4 +1,4 @@
-﻿Ext.define('TaskCodes.view.setareas', {
+Ext.define('TaskCodes.view.setareas', {
 	extend: 'Ext.Container',
 	alias: 'widget.setareas',
 	config: 
@@ -45,6 +45,7 @@
 						xtype: 'titlebar',
 						title: 'Areas',
 						docked: 'bottom',
+                        ui: 'light',
 						items: 
 						[
 							{
