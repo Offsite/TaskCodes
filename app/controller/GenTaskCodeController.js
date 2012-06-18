@@ -21,7 +21,7 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
                 addTaskCodeDoneCommand: 'onAddTaskCodeDoneCommand',
                 addTaskCodeCommand: 'onAddTaskCodeCommand',
                 addTaskCodeDeleteCodeCommand: 'onAddTaskCodeDeleteCodeCommand'
-            },
+            }
 		}
 	},
 	activateSetArea: function()
