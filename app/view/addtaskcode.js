@@ -23,7 +23,7 @@ Ext.define('TaskCodes.view.addtaskcode', {
                                 xtype: 'button',
                                 itemId: 'addtaskcodeDoneButton',
                                 text: 'Done',
-                                align: 'right',
+                                align: 'left',
                                 ui: 'confirm'
                             }
                         ]
