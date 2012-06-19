@@ -30,7 +30,8 @@ Ext.define("TaskCodes.controller.NewProjController", {
         var newValues = newProjView.getValues();
         console.log('The new project is', newValues.projectName);
         console.log('The client is', newValues.client);
-        console.log('The project numbers is', newValues.projectNumber);
+        console.log('The project number is', newValues.projectNumber);
+        Ext.Msg.alert('New Project', 'The new project is: ' + newValues.projectName + '<br />The client is: ' + newValues.client + '<br />The project number is: ' + newValues.projectNumber, Ext.emptyFn);
         
 		this.activateSetArea();
 	},

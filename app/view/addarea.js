@@ -1,5 +1,5 @@
 Ext.define('TaskCodes.view.addarea', {
-	extend: 'Ext.Panel',
+	extend: 'Ext.form.Panel',
 	alias: 'widget.addarea',
 	config: 
 	{

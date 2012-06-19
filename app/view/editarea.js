@@ -15,12 +15,12 @@ Ext.define('TaskCodes.view.editarea', {
 		},
 */		items: 
 		[
-		    {
-        		xtype: 'titlebar',
-        		docked: 'top',
-        		title: '..::Task Codes::..',
+            {
+                xtype: 'titlebar',
+                docked: 'top',
+                title: '..::Task Codes::..',
                 items: 
-        		[
+                [
                     {
                         xtype: 'button',
                         ui: 'confirm',
@@ -39,10 +39,10 @@ Ext.define('TaskCodes.view.editarea', {
                         iconMask: true,
                         itemId: 'editAreaCancelButton'
                     }
-        		]
-        	},
+                ]
+            },
             {
-    			xtype: 'fieldset',
+                xtype: 'fieldset',
 				items: 
 				[
 					{

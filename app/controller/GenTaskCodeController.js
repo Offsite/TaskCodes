@@ -1,6 +1,6 @@
 Ext.define("TaskCodes.controller.GenTaskCodeController", {
 	extend: "Ext.app.Controller",
-	config: 
+	config:
 	{
 		refs: 
 		{
@@ -31,7 +31,6 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
 	},
     activateAddTaskCode: function()
 	{
-        console.log('activateAddTaskCode');
         var addTaskCodeView = this.getAddTaskCodeView();
     	Ext.Viewport.animateActiveItem(addTaskCodeView, {type: 'slide', direction: 'left'});
 	},
@@ -48,7 +47,11 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
     onAddTaskCodeCommand: function()
     {
         console.log('onAddTaskCodeCommand');
-        
+        var addTaskCodeView = Ext.getCmp('addTaskCodeForm');
+        var newValues = addTaskCodeView.getValues();
+        console.log(newValues.addTaskArea + ' ' + newValues.addTaskType + ' ' + newValues.addTaskCraft + ' ' + newValues.addtask + ' ' + newValues.addsubtask);
+        Ext.Msg.alert('Values', 'Area: ' + newValues.addTaskArea + '<br />Work Type: ' + newValues.addTaskType + '<br />Craft: ' + newValues.addTaskCraft + '<br />Task: ' + newValues.addtask + '<br />Subtask: ' + newValues.addsubtask, Ext.emptyFn);
+        addTaskCodeView.setValues({addsubtask: ''});
     },
 	onGenTaskCodeBackCommand: function()
 	{

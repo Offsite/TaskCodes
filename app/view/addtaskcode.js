@@ -30,6 +30,7 @@ Ext.define('TaskCodes.view.addtaskcode', {
                     },
                     {
                         xtype: 'formpanel',
+                        id: 'addTaskCodeForm',
                         items: 
                         [
                             {
@@ -40,32 +41,35 @@ Ext.define('TaskCodes.view.addtaskcode', {
                                 [
                                     {
                                         xtype: 'selectfield',
+                                        name: 'addTaskArea',
                                         label: 'Area',
                                         options: 
                                         [
-                                            {text: 'First Option',  value: 'first'},
-                                            {text: 'Second Option', value: 'second'},
-                                            {text: 'Third Option',  value: 'third'}
+                                            {text: 'Pipe Spool',  value: '10'},
+                                            {text: 'Structure', value: '20'},
+                                            {text: 'Subcontractor Work',  value: '30'}
                                         ]
                                     },
                                     {
                                         xtype: 'selectfield',
+                                        name: 'addTaskType',
                                         label: 'Type',
                                         options: 
                                         [
-                                            {text: 'First Option',  value: 'first'},
-                                            {text: 'Second Option', value: 'second'},
-                                            {text: 'Third Option',  value: 'third'}
+                                            {text: 'Piping',  value: '24'},
+                                            {text: 'Vessels and Mech Equip', value: '23'},
+                                            {text: 'Instrumentation',  value: '26'}
                                         ]
                                     },
                                     {
                                         xtype: 'selectfield',
+                                        name: 'addTaskCraft',
                                         label: 'Craft',
                                         options: 
                                         [
-                                            {text: 'First Option',  value: 'first'},
-                                            {text: 'Second Option', value: 'second'},
-                                            {text: 'Third Option',  value: 'third'}
+                                            {text: 'Boiler Maker',  value: '05'},
+                                            {text: 'Pipe Fitter', value: '55'},
+                                            {text: 'Iron Worker',  value: '25'}
                                         ]
                                     }
                                 ]
@@ -79,11 +83,13 @@ Ext.define('TaskCodes.view.addtaskcode', {
                                     {
                                         xtype: 'textfield',
                                         name: 'addtask',
+                                        placeHolder: 'Ex. Carry Large Stick',
                                         label: 'Task'
                                     },
                                     {
                                         xtype: 'textfield',
                                         name: 'addsubtask',
+                                        placeHolder: '(optional)',
                                         label: 'Subtask'
                                     }
                                 ]
@@ -126,31 +132,31 @@ Ext.define('TaskCodes.view.addtaskcode', {
                                 iconMask: true,
                                 ui: 'decline',
                                 itemId: 'addtaskcodeDeleteCodeButton'
-                            },
+                            }
                         ]
                     },
                     {
                         xtype: 'list',
                         emptyText: 'Just Filling the Space',
                         itemTpl: '{plchldr}',
-        				data: 
-        				[
-        					{plchldr: '00-00-00-000'},
-        					{plchldr: '00-00-00-001'},
-        					{plchldr: '00-00-00-011'},
-        					{plchldr: '00-00-00-111'},
-        					{plchldr: '00-00-01-111'},
-        					{plchldr: '00-00-11-111'},
-        					{plchldr: '00-01-11-111'},
-        					{plchldr: '00-11-11-111'},
-        					{plchldr: '01-11-11-111'},
-        					{plchldr: '11-11-11-111'}
-        				],
+                        data: 
+                        [
+                            {plchldr: '00-00-00-000'},
+                            {plchldr: '00-00-00-001'},
+                            {plchldr: '00-00-00-011'},
+                            {plchldr: '00-00-00-111'},
+                            {plchldr: '00-00-01-111'},
+                            {plchldr: '00-00-11-111'},
+                            {plchldr: '00-01-11-111'},
+                            {plchldr: '00-11-11-111'},
+                            {plchldr: '01-11-11-111'},
+                            {plchldr: '11-11-11-111'}
+                        ]
                     }
                 ]    
             }
         ],
-    	listeners: 
+        listeners: 
 		[
             {
                 delegate: '#addtaskcodeDeleteCodeButton',
@@ -183,5 +189,5 @@ Ext.define('TaskCodes.view.addtaskcode', {
     {
         console.log('addTaskCodeCommand');
         this.fireEvent('addTaskCodeCommand', this);
-    },
+    }
 });

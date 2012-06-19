@@ -49,6 +49,7 @@ Ext.define("TaskCodes.controller.SetAreasController", {
     activateEditAreaView: function () 
     {
     	var editAreaView = this.getEditAreaView();
+        editAreaView.setValues({areaDescription: ''});
 		Ext.Viewport.animateActiveItem(editAreaView, {type: 'slide', direction: 'left'});
     },
     onEditAreaCommand: function()
@@ -59,6 +60,10 @@ Ext.define("TaskCodes.controller.SetAreasController", {
     onEditAreaSaveCommand: function()
 	{
 		console.log('onEditAreaSaveCommand');
+        var editAreaView = this.getEditAreaView();
+        var newValues = editAreaView.getValues();
+        console.log('The new description is ' + newValues.areaDescription);
+        Ext.Msg.confirm('Are You Sure?', 'Are you sure you want to change the area description to ' + newValues.areaDescription, Ext.emptyFn);
         this.activateSetAreaView();
 	},
 	onEditAreaCancelCommand: function()
@@ -69,22 +74,38 @@ Ext.define("TaskCodes.controller.SetAreasController", {
 	onAreaListBackCommand: function()
 	{
 		console.log('onAreaListBackCommand');
+        if(this.addAreaView)
+        {
+            this.addAreaView.destroy();
+        }
 		this.activateNewProjView();	
 	},
 	onAreaListContinueCommand: function()
 	{
 		console.log('onAreaListContinueCommand');
-		this.activateGenTaskCodeView();	
+		if(this.addAreaView)
+        {
+            this.addAreaView.destroy();
+        }
+        this.activateGenTaskCodeView();	
 	},
 	onAddNewAreaCommand: function()
 	{
 		console.log('onAddNewAreaCommand');
+        if(this.addAreaView)
+        {
+            this.addAreaView.destroy();
+        }
 		this.addAreaView = Ext.Viewport.add({xtype: 'addarea'});
 		this.addAreaView.show();
 	},
 	onAddAreaDoneCommand: function()
 	{
 		console.log('onAddAreaDoneCommand');
+        var addAreaView = this.getAddAreaView();
+        var newValues = addAreaView.getValues();
+        console.log('The new area is ' + newValues.areaDescription);
+        Ext.Msg.alert('New Area', 'The new area is: ' + newValues.areaDescription);
 		this.addAreaView.hide();
 	},
     onAddAreaCancelCommand: function()
