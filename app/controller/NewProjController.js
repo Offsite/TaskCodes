@@ -33,6 +33,8 @@ Ext.define("TaskCodes.controller.NewProjController", {
         console.log('The project number is', newValues.projectNumber);
         Ext.Msg.alert('New Project', 'The new project is: ' + newValues.projectName + '<br />The client is: ' + newValues.client + '<br />The project number is: ' + newValues.projectNumber, Ext.emptyFn);
         
+        var newproject = Ext.getStore('projectstore');
+        
 		this.activateSetArea();
 	},
 	launch: function()
