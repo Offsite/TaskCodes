@@ -27,28 +27,28 @@ Ext.define('TaskCodes.view.gentaskcode', {
 				columns:
 		        [
 			       	{
-						header: 'Area',
-						width: '10%'
+						header: 'A',
+						width: '5%'
 			       	},
 			       	{
-				   		header: 'Type',
-				   		width: '10%'
+				   		header: 'WT',
+				   		width: '5%'
 			       	},
 			       	{
-				   		header: 'Craft',
-				   		width: '10%'
+				   		header: 'C',
+				   		width: '5%'
 			       	},
 			       	{
-				   		header: 'Task',
-				   		width: '10%'
+				   		header: 'T',
+				   		width: '5%'
 			       	},
 			       	{
-				   		header: 'Subtask',
-				   		width: '10%'
+				   		header: 'ST',
+				   		width: '5%'
 			       	},
 			       	{
 						header: 'Description',
-						width: '50%'
+						width: '75%'
 			       	}
 				]
 			},
