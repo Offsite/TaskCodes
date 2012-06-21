@@ -36,6 +36,7 @@ Ext.define("TaskCodes.controller.NewProjController", {
         
         var newproject = Ext.getStore('projectstore');
         
+        
 		this.activateSetArea();
 	},
 	launch: function()
