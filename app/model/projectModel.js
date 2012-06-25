@@ -6,9 +6,9 @@ Ext.define('TaskCodes.model.projectModel', {
         identifier: 'uuid',
 		fields: 
 		[
-			{name: 'name', type: 'string'},
+			{name: 'projectName', type: 'string'},
 			{name: 'client', type: 'string'},
-			{name: 'projnumber', type: 'string'}
+			{name: 'projectNumber', type: 'string'}
 		]
 	}
 });
