@@ -10,10 +10,5 @@ Ext.define('TaskCodes.model.projectModel', {
 			{name: 'client', type: 'string'},
 			{name: 'projnumber', type: 'string'}
 		],
-		proxy:
-		{
-			type: 'ajax',
-			url: 'app/data/project.json'
-		}
 	}
 });
