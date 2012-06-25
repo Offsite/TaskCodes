@@ -39,8 +39,8 @@ Ext.define("TaskCodes.controller.NewProjController", {
     //    currentProject.set("projectNumber", newValues.projectNumber);
         
         var newproject = Ext.getStore('projectstore');
-    //    newproject.add(currentProject);
-    //    newproject.sync();
+        newproject.add(newValues);
+        newproject.sync();
         
 		this.activateSetArea();
 	},
