@@ -34,9 +34,9 @@ Ext.define("TaskCodes.controller.NewProjController", {
         console.log('The project number is', newValues.projectNumber);
         Ext.Msg.alert('New Project', 'The new project is: ' + newValues.projectName + '<br />The client is: ' + newValues.client + '<br />The project number is: ' + newValues.projectNumber, Ext.emptyFn);
         
-        currentProject.set("projectName", newValues.projectName);
-        currentProject.set("client", newValues.client);
-        currentProject.set("projectNumber", newValues.projectNumber);
+    //    currentProject.set("projectName", newValues.projectName);
+    //    currentProject.set("client", newValues.client);
+    //    currentProject.set("projectNumber", newValues.projectNumber);
         
         var newproject = Ext.getStore('projectstore');
         newproject.add(currentProject);
