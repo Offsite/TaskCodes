@@ -27,19 +27,19 @@ Ext.define("TaskCodes.controller.NewProjController", {
 	{
 		console.log('onStartNewProjCommand');
         var newProjView = this.getNewProjView();
-//        var currentProject = newProjView.getRecord();
+        var currentProject = newProjView.getRecord();
         var newValues = newProjView.getValues();
         console.log('The new project is', newValues.projectName);
         console.log('The client is', newValues.client);
         console.log('The project number is', newValues.projectNumber);
         Ext.Msg.alert('New Project', 'The new project is: ' + newValues.projectName + '<br />The client is: ' + newValues.client + '<br />The project number is: ' + newValues.projectNumber, Ext.emptyFn);
         
-    //    currentProject.set("projectName", newValues.projectName);
-    //    currentProject.set("client", newValues.client);
-    //    currentProject.set("projectNumber", newValues.projectNumber);
+        currentProject.set("projectName", newValues.projectName);
+        currentProject.set("client", newValues.client);
+        currentProject.set("projectNumber", newValues.projectNumber);
         
         var newproject = Ext.getStore('projectStore');
-        newproject.add(newValues);
+        newproject.add(currentProject);
         newproject.sync();
         
 		this.activateSetArea();
