@@ -40,7 +40,7 @@ Ext.define("TaskCodes.controller.NewProjController", {
         
         var newproject = Ext.getStore('projectstore');
     //    newproject.add(currentProject);
-        newproject.sync();
+    //    newproject.sync();
         
 		this.activateSetArea();
 	},
