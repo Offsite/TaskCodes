@@ -3,12 +3,12 @@ Ext.define('TaskCodes.model.projectModel', {
 	
 	config: 
 	{
-        idProperty: 'projnumber',
+        identifier: 'uuid',
 		fields: 
 		[
 			{name: 'name', type: 'string'},
 			{name: 'client', type: 'string'},
 			{name: 'projnumber', type: 'string'}
-		],
+		]
 	}
 });
