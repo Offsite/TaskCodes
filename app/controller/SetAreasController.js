@@ -1,126 +1,122 @@
 Ext.define("TaskCodes.controller.SetAreasController", {
-	extend: "Ext.app.Controller",
-	config: 
-	{
-		refs: 
-		{
-			setAreaView: 'setareas',
+    extend: "Ext.app.Controller",
+    config: {
+        refs: {
+            setAreaView: 'setareas',
             editAreaView: 'editarea',
-			newProjView: 'newproj',
-			genTaskCodeView: 'gentaskcode',
-			addAreaView: 'addarea'
-		},
-		control:
-		{
-			setAreaView:
-			{
-				areaListBackCommand: 'onAreaListBackCommand',
-				areaListContinueCommand: 'onAreaListContinueCommand',
-				addNewAreaCommand: 'onAddNewAreaCommand',
+            newProjView: 'newproj',
+            genTaskCodeView: 'gentaskcode',
+            addAreaView: 'addarea'
+        },
+        control: {
+            setAreaView: {
+                areaListBackCommand: 'onAreaListBackCommand',
+                areaListContinueCommand: 'onAreaListContinueCommand',
+                addNewAreaCommand: 'onAddNewAreaCommand',
                 editAreaCommand: 'onEditAreaCommand'
-			},
-			addAreaView:
-			{
-				addAreaDoneCommand: 'onAddAreaDoneCommand',
+            },
+            addAreaView: {
+                addAreaDoneCommand: 'onAddAreaDoneCommand',
                 addAreaCancelCommand: 'onAddAreaCancelCommand'
-			},
-            editAreaView:
-            {
+            },
+            editAreaView: {
                 editAreaSaveCommand: 'onEditAreaSaveCommand',
                 editAreaCancelCommand: 'onEditAreaCancelCommand'
             }
-		}
-	},
-	activateNewProjView: function()
-	{
-		var newProjView = this.getNewProjView();
-		Ext.Viewport.animateActiveItem(newProjView, {type: 'slide', direction: 'right'});
-	},
-    activateSetAreaView: function()
-	{
-		var setAreaView = this.getSetAreaView();
-		Ext.Viewport.animateActiveItem(setAreaView, {type: 'slide', direction: 'right'});
-	},
-	activateGenTaskCodeView: function()
-	{
-		var genTaskCodeView = this.getGenTaskCodeView();
-		Ext.Viewport.animateActiveItem(genTaskCodeView, {type: 'slide', direction: 'left'});
-	},
-    activateEditAreaView: function () 
-    {
-    	var editAreaView = this.getEditAreaView();
-        editAreaView.setValues({areaDescription: ''});
-		Ext.Viewport.animateActiveItem(editAreaView, {type: 'slide', direction: 'left'});
+        }
     },
-    onEditAreaCommand: function()
-    {
+    activateNewProjView: function() {
+        var newProjView = this.getNewProjView();
+        Ext.Viewport.animateActiveItem(newProjView, {
+            type: 'slide',
+            direction: 'right'
+        });
+    },
+    activateSetAreaView: function() {
+        var setAreaView = this.getSetAreaView();
+        Ext.Viewport.animateActiveItem(setAreaView, {
+            type: 'slide',
+            direction: 'right'
+        });
+    },
+    activateGenTaskCodeView: function() {
+        var genTaskCodeView = this.getGenTaskCodeView();
+        Ext.Viewport.animateActiveItem(genTaskCodeView, {
+            type: 'slide',
+            direction: 'left'
+        });
+    },
+    activateEditAreaView: function() {
+        var editAreaView = this.getEditAreaView();
+        editAreaView.setValues({
+            areaDescription: ''
+        });
+        Ext.Viewport.animateActiveItem(editAreaView, {
+            type: 'slide',
+            direction: 'left'
+        });
+    },
+    onEditAreaCommand: function() {
         console.log('onEditAreaCommand');
         this.activateEditAreaView();
     },
-    onEditAreaSaveCommand: function()
-	{
-		console.log('onEditAreaSaveCommand');
+    onEditAreaSaveCommand: function() {
+        console.log('onEditAreaSaveCommand');
         var editAreaView = this.getEditAreaView();
         var newValues = editAreaView.getValues();
         console.log('The new description is ' + newValues.areaDescription);
         Ext.Msg.confirm('Are You Sure?', 'Are you sure you want to change the area description to ' + newValues.areaDescription, Ext.emptyFn);
         this.activateSetAreaView();
-	},
-	onEditAreaCancelCommand: function()
-	{
-		console.log('onEditAreaCancelCommand');
+    },
+    onEditAreaCancelCommand: function() {
+        console.log('onEditAreaCancelCommand');
         this.activateSetAreaView();
-	},
-	onAreaListBackCommand: function()
-	{
-		console.log('onAreaListBackCommand');
-        if(this.addAreaView)
-        {
+    },
+    onAreaListBackCommand: function() {
+        console.log('onAreaListBackCommand');
+        if (this.addAreaView) {
             this.addAreaView.destroy();
         }
-		this.activateNewProjView();	
-	},
-	onAreaListContinueCommand: function()
-	{
-		console.log('onAreaListContinueCommand');
-		if(this.addAreaView)
-        {
+        this.activateNewProjView();
+    },
+    onAreaListContinueCommand: function() {
+        console.log('onAreaListContinueCommand');
+        if (this.addAreaView) {
             this.addAreaView.destroy();
         }
-        this.activateGenTaskCodeView();	
-	},
-	onAddNewAreaCommand: function()
-	{
-		console.log('onAddNewAreaCommand');
-        if(this.addAreaView)
-        {
+        this.activateGenTaskCodeView();
+    },
+    onAddNewAreaCommand: function() {
+        console.log('onAddNewAreaCommand');
+        if (this.addAreaView) {
             this.addAreaView.destroy();
         }
-		this.addAreaView = Ext.Viewport.add({xtype: 'addarea'});
-		this.addAreaView.show();
-	},
-	onAddAreaDoneCommand: function()
-	{
-		console.log('onAddAreaDoneCommand');
+        this.addAreaView = Ext.Viewport.add({
+            xtype: 'addarea'
+        });
+        this.addAreaView.show();
+    },
+    onAddAreaDoneCommand: function() {
+        console.log('onAddAreaDoneCommand');
         var addAreaView = this.getAddAreaView();
         var newValues = addAreaView.getValues();
         console.log('The new area is ' + newValues.areaDescription);
+        var newarea = Ext.getStore('');
+        newarea.add(newValues);
+        newarea.sync();
         Ext.Msg.alert('New Area', 'The new area is: ' + newValues.areaDescription);
-		this.addAreaView.hide();
-	},
-    onAddAreaCancelCommand: function()
-    {
+        this.addAreaView.hide();
+    },
+    onAddAreaCancelCommand: function() {
         console.log('onAddAreaCancelCommand');
         this.addAreaView.hide();
     },
-	launch: function()
-	{
-		this.callParent(arguments);
-		console.log('launch');
-	},
-	init: function()
-	{
-		this.callParent(arguments);
-		console.log('initialize SetAreasController');
-	},
+    launch: function() {
+        this.callParent(arguments);
+        console.log('launch');
+    },
+    init: function() {
+        this.callParent(arguments);
+        console.log('initialize SetAreasController');
+    },
 });
