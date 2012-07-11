@@ -6,14 +6,15 @@ Ext.define("TaskCodes.controller.SetAreasController", {
             editAreaView: 'editarea',
             newProjView: 'newproj',
             genTaskCodeView: 'gentaskcode',
-            addAreaView: 'addarea'
+            addAreaView: 'addarea',
         },
         control: {
             setAreaView: {
                 areaListBackCommand: 'onAreaListBackCommand',
                 areaListContinueCommand: 'onAreaListContinueCommand',
                 addNewAreaCommand: 'onAddNewAreaCommand',
-                editAreaCommand: 'onEditAreaCommand'
+                editAreaCommand: 'onEditAreaCommand',
+                removeAreaCommand: 'onRemoveAreaCommand'
             },
             addAreaView: {
                 addAreaDoneCommand: 'onAddAreaDoneCommand',
@@ -100,12 +101,20 @@ Ext.define("TaskCodes.controller.SetAreasController", {
         console.log('onAddAreaDoneCommand');
         var addAreaView = this.getAddAreaView();
         var newValues = addAreaView.getValues();
+        this.areacounter = this.areacounter + 5;
+        newValues.code = this.areacounter;
         console.log('The new area is ' + newValues.areaDescription);
-        var newarea = Ext.getStore('');
+        Ext.Msg.alert('New Area', 'The new area is: ' + newValues.areaDescription);
+        var newarea = Ext.getStore('arealistStore');
         newarea.add(newValues);
         newarea.sync();
-        Ext.Msg.alert('New Area', 'The new area is: ' + newValues.areaDescription);
         this.addAreaView.hide();
+    },
+    onRemoveAreaCommand: function(record) {
+        console.log('onRemoveAreaCommand');
+        var arealistStore = Ext.getStore('arealistStore');
+        arealistStore.remove('record');
+        arealistStore.sync();
     },
     onAddAreaCancelCommand: function() {
         console.log('onAddAreaCancelCommand');
@@ -117,6 +126,9 @@ Ext.define("TaskCodes.controller.SetAreasController", {
     },
     init: function() {
         this.callParent(arguments);
+        this.areacounter = 5;
+        var arealiststore = Ext.getStore('arealistStore');
+        arealiststore.load();
         console.log('initialize SetAreasController');
     },
 });

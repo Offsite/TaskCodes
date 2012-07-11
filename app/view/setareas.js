@@ -6,32 +6,32 @@ Ext.define('TaskCodes.view.setareas', {
 		layout: 'vbox',
 		items: 
 		[
-		    {
-        		xtype: 'titlebar',
-        		docked: 'top',
-        		title: '..::Task Codes::..'
-        	},
+            {
+                xtype: 'titlebar',
+                docked: 'top',
+                title: '..::Task Codes::..'
+            },
 			{ 
 				xtype: 'toolbar',
 				docked: 'bottom',
-        		items: 
-        		[
-        			{
-        				xtype: 'button',
-        				text: 'Back',
-        				ui: 'back',
-        				itemId: 'areaListBackButton'
-        			},
-        			{
-        				xtype: 'spacer'
-        			},
-        			{
-        				xtype: 'button',
-        				text: 'Continue',
-        				itemId: 'areaListContinueButton',
-        				ui: 'forward'
-        			}
-        		]
+                items: 
+                [
+                    {
+                        xtype: 'button',
+                        text: 'Back',
+                        ui: 'back',
+                        itemId: 'areaListBackButton'
+                    },
+                    {
+                        xtype: 'spacer'
+                    },
+                    {
+                        xtype: 'button',
+                        text: 'Continue',
+                        itemId: 'areaListContinueButton',
+                        ui: 'forward'
+                    }
+                ]
 			
 			},
 			{
@@ -55,6 +55,14 @@ Ext.define('TaskCodes.view.setareas', {
 								iconCls: 'add',
 								iconMask: true,
 								itemId: 'addNewAreaButton'
+							},
+                            {
+                                xtype: 'button',
+								align: 'right',
+								ui: 'decline',
+								iconCls: 'trash',
+								iconMask: true,
+								itemId: 'removeAreaButton'
 							}
 						]
 					},
@@ -68,21 +76,9 @@ Ext.define('TaskCodes.view.setareas', {
 				flex: 2,
 				itemId: 'areaListId',
 				emptyText: 'No Areas added yet. You should add some...  ;)',
-				itemTpl: '{plchldr}',
 				onItemDisclosure: true,
-				data: 
-				[
-					{plchldr: 'Area 1'},
-					{plchldr: 'Area 2'},
-					{plchldr: 'Area 3'},
-					{plchldr: 'Area 4'},
-					{plchldr: 'Area 5'},
-					{plchldr: 'Area 6'},
-					{plchldr: 'Area 7'},
-					{plchldr: 'Area 8'},
-					{plchldr: 'Area 9'},
-					{plchldr: 'Area 10'}
-				],
+                store: 'arealistStore',
+                itemTpl: '{areaDescription}'
 			}
 		],
 		listeners:
@@ -106,9 +102,28 @@ Ext.define('TaskCodes.view.setareas', {
 				delegate: '#areaListContinueButton',
 				event: 'tap',
 				fn: 'onAreaListContinueTap'
-			}
+			},
+            {
+                delegate: '#removeAreaButton',
+                event: 'tap',
+                fn: 'onRemoveAreaTap'
+            },
+            {
+                delegate: '#areaListId',
+                event: 'select',
+                fn: 'onAreaListSelect'
+            }
 		]
 	},
+    onAreaListSelect: function(record)
+    {
+        console.log('areaListSelectCommand')
+    },
+    onRemoveAreaTap: function(record)
+    {
+        console.log('removeAreaCommand');
+        this.fireEvent('removeAreaCommand', this, record);
+    },
 	onAddNewAreaTap: function()
 	{
 		console.log('addNewAreaCommand');

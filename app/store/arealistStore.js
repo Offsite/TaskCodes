@@ -4,8 +4,8 @@ Ext.define("TaskCodes.store.arealistStore", {
     {
 		model: 'TaskCodes.model.arealistModel',
 		storeId: 'arealistStore',
-		autoLoad: true,
-		autoSync: true,
+//		autoLoad: true,
+//		autoSync: true,
         proxy:
 		{
 			type: 'localstorage',
