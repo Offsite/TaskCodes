@@ -15,10 +15,7 @@ Ext.define('TaskCodes.model.craftslistModel', {
 		proxy:
 		{
 			type: 'ajax',
-			url: 'app/data/craftslist.json',
-            reader: {
-                type: 'json'
-            }
+			url: 'app/data/craftslist.json'
 		}
 	}
 });
