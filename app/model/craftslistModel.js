@@ -1,4 +1,4 @@
-﻿Ext.define('TaskCodes.model.craftslistModel', {
+Ext.define('TaskCodes.model.craftslistModel', {
 	extend: 'Ext.data.Model',
 	
 	config: 
@@ -15,7 +15,10 @@
 		proxy:
 		{
 			type: 'ajax',
-			url: 'app/data/craftslist.json'
+			url: 'app/data/craftslist.json',
+            reader: {
+                type: 'json'
+            }
 		}
 	}
 });

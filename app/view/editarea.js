@@ -34,7 +34,7 @@ Ext.define('TaskCodes.view.editarea', {
                         xtype: 'button',
                         ui: 'decline',
                         align: 'left',
-                        text: 'Cancel',
+                        text: 'Delete',
                         iconCls: 'trash',
                         iconMask: true,
                         itemId: 'editAreaCancelButton'

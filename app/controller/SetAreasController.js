@@ -47,30 +47,42 @@ Ext.define("TaskCodes.controller.SetAreasController", {
             direction: 'left'
         });
     },
-    activateEditAreaView: function() {
+    activateEditAreaView: function(record) {
         var editAreaView = this.getEditAreaView();
-        editAreaView.setValues({
-            areaDescription: ''
-        });
+        editAreaView.setRecord(record);
         Ext.Viewport.animateActiveItem(editAreaView, {
             type: 'slide',
             direction: 'left'
         });
     },
-    onEditAreaCommand: function() {
+    onEditAreaCommand: function(list, record) {
         console.log('onEditAreaCommand');
-        this.activateEditAreaView();
+        this.activateEditAreaView(record);
     },
     onEditAreaSaveCommand: function() {
         console.log('onEditAreaSaveCommand');
         var editAreaView = this.getEditAreaView();
         var newValues = editAreaView.getValues();
         console.log('The new description is ' + newValues.areaDescription);
-        Ext.Msg.confirm('Are You Sure?', 'Are you sure you want to change the area description to ' + newValues.areaDescription, Ext.emptyFn);
+        //Ext.Msg.confirm('Are You Sure?', 'Are you sure you want to change the area description to ' + newValues.areaDescription, Ext.emptyFn);
+        
+        var currentRecord = editAreaView.getRecord();
+        
+        currentRecord.set("areaDescription", newValues.areaDescription);
+        var areas = Ext.getStore('arealistStore');
+        areas.sync();
+        
         this.activateSetAreaView();
     },
     onEditAreaCancelCommand: function() {
         console.log('onEditAreaCancelCommand');
+        
+        var editAreaView = this.getEditAreaView();
+        var currentNote = editAreaView.getRecord();
+        var areaStore = Ext.getStore("arealistStore");
+        areaStore.remove(currentNote);
+        areaStore.sync();
+        
         this.activateSetAreaView();
     },
     onAreaListBackCommand: function() {
@@ -104,17 +116,19 @@ Ext.define("TaskCodes.controller.SetAreasController", {
         this.areacounter = this.areacounter + 5;
         newValues.code = this.areacounter;
         console.log('The new area is ' + newValues.areaDescription);
-        Ext.Msg.alert('New Area', 'The new area is: ' + newValues.areaDescription);
+//        Ext.Msg.alert('New Area', 'The new area is: ' + newValues.areaDescription);
         var newarea = Ext.getStore('arealistStore');
         newarea.add(newValues);
         newarea.sync();
         this.addAreaView.hide();
     },
-    onRemoveAreaCommand: function(record) {
+    onRemoveAreaCommand: function() {
         console.log('onRemoveAreaCommand');
-        var arealistStore = Ext.getStore('arealistStore');
-        arealistStore.remove('record');
-        arealistStore.sync();
+        var setAreaView = this.getSetAreaView();
+        var currentRecord = this.selectedRecord;
+        var areas = Ext.getStore('arealistStore');
+        areas.remove(currentRecord);
+        areas.sync();
     },
     onAddAreaCancelCommand: function() {
         console.log('onAddAreaCancelCommand');

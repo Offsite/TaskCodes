@@ -49,7 +49,32 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         var addTaskCodeView = Ext.getCmp('addTaskCodeForm');
         var newValues = addTaskCodeView.getValues();
         console.log(newValues.addTaskArea + ' ' + newValues.addTaskType + ' ' + newValues.addTaskCraft + ' ' + newValues.addtask + ' ' + newValues.addsubtask);
-        Ext.Msg.alert('Values', 'Area: ' + newValues.addTaskArea + '<br />Work Type: ' + newValues.addTaskType + '<br />Craft: ' + newValues.addTaskCraft + '<br />Task: ' + newValues.addtask + '<br />Subtask: ' + newValues.addsubtask, Ext.emptyFn);
+        //        Ext.Msg.alert('Values', 'Area: ' + newValues.addTaskArea + '<br />Work Type: ' + newValues.addTaskType + '<br />Craft: ' + newValues.addTaskCraft + '<br />Task: ' + newValues.addtask + '<br />Subtask: ' + newValues.addsubtask, Ext.emptyFn);
+        //Check if Task Description already exists, find open task/subtask
+        var tasknum = 0;
+        var subtasknum = 0;
+        var matchTask = taskcodeStore.findBy(function(record, id) {
+            //requires editing
+            for (this.tasknum = 0; this.tasknum < 100; this.tasknum++)
+            if (record.get('area') == newValues.addTaskArea && record.get('workType') == newValues.addTaskType && record.get('craft') == newValues.addTaskCraft && record.get('task') != this.tasknum) {
+                return true;
+            }
+        });
+        //this system does not handle the case of 1000 tasks
+        if (matchTask = true) {
+            newValues.addtask = tasknum;
+        }
+        var matchTask2 = taskcodeStore.findBy(function(record, id) {
+            //requires editing
+            for (this.subtasknum = 0; this.subtasknum < 10; this.subtasknum++)
+            if (record.get('area') == newValues.addTaskArea && record.get('workType') == newValues.addTaskType && record.get('craft') == newValues.addTaskCraft && record.get('task') == newValues.addtask && record.get('subtask') != subtasknum) {
+                return true;
+            }
+        });
+        if (matchTask2 = true) {
+            newValues.addsubtask = subtasknum
+        }
+
         addTaskCodeView.setValues({
             addsubtask: ''
         });

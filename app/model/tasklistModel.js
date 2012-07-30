@@ -1,4 +1,4 @@
-﻿Ext.define('TaskCodes.model.tasklistModel', {
+Ext.define('TaskCodes.model.tasklistModel', {
 	extend: 'Ext.data.Model',
 	
 	config: 

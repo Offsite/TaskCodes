@@ -7,7 +7,6 @@ Ext.define("TaskCodes.controller.NewProjController", {
 			newProjView: "newproj",
             newProjData: '#projData',
 			setAreaView: 'setareas'
-
 		},
 		control:
 		{
@@ -31,7 +30,7 @@ Ext.define("TaskCodes.controller.NewProjController", {
         console.log('The new project is', newValues.projectName);
         console.log('The client is', newValues.client);
         console.log('The project number is', newValues.projectNumber);
-        Ext.Msg.alert('New Project', 'The new project is: ' + newValues.projectName + '<br />The client is: ' + newValues.client + '<br />The project number is: ' + newValues.projectNumber, Ext.emptyFn);
+//        Ext.Msg.alert('New Project', 'The new project is: ' + newValues.projectName + '<br />The client is: ' + newValues.client + '<br />The project number is: ' + newValues.projectNumber, Ext.emptyFn);
         var newproject = Ext.getStore('projectStore');
         newproject.add(newValues);
         newproject.sync();
@@ -45,6 +44,7 @@ Ext.define("TaskCodes.controller.NewProjController", {
 	init: function()
 	{
 		this.callParent(arguments);
+        window.localStorage.clear('all');
 		console.log('initialize NewProjController');
 	}
 });

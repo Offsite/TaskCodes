@@ -55,7 +55,7 @@ Ext.define('TaskCodes.view.setareas', {
 								iconCls: 'add',
 								iconMask: true,
 								itemId: 'addNewAreaButton'
-							},
+							}/*,
                             {
                                 xtype: 'button',
 								align: 'right',
@@ -63,7 +63,7 @@ Ext.define('TaskCodes.view.setareas', {
 								iconCls: 'trash',
 								iconMask: true,
 								itemId: 'removeAreaButton'
-							}
+							}*/
 						]
 					},
 					{
@@ -115,24 +115,25 @@ Ext.define('TaskCodes.view.setareas', {
             }
 		]
 	},
-    onAreaListSelect: function(record)
+    onAreaListSelect: function(list, record, target, index, evt, options)
     {
-        console.log('areaListSelectCommand')
+        console.log('areaListSelectCommand');
+        this.selectedRecord = record;
     },
-    onRemoveAreaTap: function(record)
+    onRemoveAreaTap: function()
     {
         console.log('removeAreaCommand');
-        this.fireEvent('removeAreaCommand', this, record);
+        this.fireEvent('removeAreaCommand', this, this.selectedRecord);
     },
 	onAddNewAreaTap: function()
 	{
 		console.log('addNewAreaCommand');
 		this.fireEvent('addNewAreaCommand', this);
 	},
-	onAreaListDisclose: function(/*list, record, target, index, evt, options*/)
+	onAreaListDisclose: function(list, record, target, index, evt, options)
 	{
 		console.log('editAreaCommand');
-		this.fireEvent('editAreaCommand', this/*, record*/);
+		this.fireEvent('editAreaCommand', this, record);
 	},
 	onAreaListBackTap: function()
 	{

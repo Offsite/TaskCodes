@@ -43,34 +43,48 @@ Ext.define('TaskCodes.view.addtaskcode', {
                                         xtype: 'selectfield',
                                         name: 'addTaskArea',
                                         label: 'Area',
-                                        options: 
-                                        [
-                                            {text: 'Pipe Spool',  value: '10'},
-                                            {text: 'Structure', value: '20'},
-                                            {text: 'Subcontractor Work',  value: '30'}
-                                        ]
+                                        store: 'arealistStore',
+                                        displayField: 'areaDescription',
+                                        valueField: 'code'
                                     },
                                     {
                                         xtype: 'selectfield',
                                         name: 'addTaskType',
                                         label: 'Type',
-                                        options: 
+                                        store: 'worktypelistStore',
+                                        displayField: 'description',
+                                        valueField: 'code'
+                                        /*options: 
                                         [
                                             {text: 'Piping',  value: '24'},
                                             {text: 'Vessels and Mech Equip', value: '23'},
-                                            {text: 'Instrumentation',  value: '26'}
-                                        ]
+                                            {text: 'Instrumentation',  value: '26'},
+                                            {text: 'Site Set Up', value: '20'},
+                                            {text: 'Concrete', value: '21'},
+                                            {text: 'Structural', value: '22'},
+                                            {text: 'Insulation', value: '26'}
+                                        ]*/
                                     },
                                     {
                                         xtype: 'selectfield',
                                         name: 'addTaskCraft',
                                         label: 'Craft',
-                                        options: 
+                                        store: 'craftslistStore',
+                                        displayField: 'description',
+                                        valueField: 'code'
+                                        /*options: 
                                         [
                                             {text: 'Boiler Maker',  value: '05'},
                                             {text: 'Pipe Fitter', value: '55'},
-                                            {text: 'Iron Worker',  value: '25'}
-                                        ]
+                                            {text: 'Iron Worker',  value: '25'},
+                                            {text: 'Millwrights', value: '40'},
+                                            {text: 'Electricians', value: '15'},
+                                            {text: 'Insulators', value: '20'},
+                                            {text: 'Operator', value: '45'},
+                                            {text: 'Scaffolders', value: '60'},
+                                            {text: 'Masons', value: '35'},
+                                            {text: 'Carpenters', value: '10'}
+                                        ]*/
                                     }
                                 ]
                             },
@@ -90,7 +104,7 @@ Ext.define('TaskCodes.view.addtaskcode', {
                                         xtype: 'textfield',
                                         name: 'addsubtask',
                                         placeHolder: '(optional)',
-                                        label: 'Subtask'
+                                        label: 'Additional Description'
                                     }
                                 ]
                             },

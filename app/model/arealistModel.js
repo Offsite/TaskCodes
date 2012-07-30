@@ -12,7 +12,7 @@ Ext.define('TaskCodes.model.arealistModel', {
 		],
 		validations: 
 		[
-			{type: 'length', field: 'code', min: 2, max: 2},
-		],
+			{type: 'length', field: 'code', min: 2, max: 2}
+		]
 	}
 });
