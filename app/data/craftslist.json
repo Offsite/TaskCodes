@@ -42,5 +42,9 @@
     {
         "code": "60",
         "description": "Scaffolders"
+    },
+    {
+        "code": "75",
+        "description": "Banana Pickers"
     }
 ]
