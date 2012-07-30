@@ -74,7 +74,6 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         if (matchTask2 = true) {
             newValues.addsubtask = subtasknum
         }
-
         addTaskCodeView.setValues({
             addsubtask: ''
         });
@@ -97,5 +96,7 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
     init: function() {
         this.callParent(arguments);
         console.log('initialize GenTaskCodeController');
+        var taskcodeStore = Ext.getStore('taskcodeStore');
+        taskcodeStore.load();
     },
 });
