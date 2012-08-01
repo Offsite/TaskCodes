@@ -57,23 +57,19 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
             //requires editing
             for (this.tasknum = 0; this.tasknum < 100; this.tasknum++)
             if (record.get('area') == newValues.addTaskArea && record.get('workType') == newValues.addTaskType && record.get('craft') == newValues.addTaskCraft && record.get('task') != this.tasknum) {
-                return true;
+                return;
             }
         });
         //this system does not handle the case of 1000 tasks
-        if (matchTask = true) {
-            newValues.addtask = tasknum;
-        }
+        newValues.addtask = tasknum;
         var matchTask2 = this.taskcodeStore.findBy(function(record, id) {
             //requires editing
             for (this.subtasknum = 0; this.subtasknum < 10; this.subtasknum++)
             if (record.get('area') == newValues.addTaskArea && record.get('workType') == newValues.addTaskType && record.get('craft') == newValues.addTaskCraft && record.get('task') == newValues.addtask && record.get('subtask') != subtasknum) {
-                return true;
+                return;
             }
         });
-        if (matchTask2 = true) {
-            newValues.addsubtask = subtasknum
-        }
+        newValues.addsubtask = subtasknum
         addTaskCodeView.setValues({
             addsubtask: ''
         });
