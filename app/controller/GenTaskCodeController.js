@@ -71,6 +71,8 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
                 return true;
             }
         });
+        console.log(tasknum);
+        console.log(subtasknum);
         newValues.addsubtask = subtasknum
         addTaskCodeView.setValues({
             addsubtask: ''
