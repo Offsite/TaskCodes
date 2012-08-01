@@ -64,7 +64,7 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         console.log('fin1');
         //this system does not handle the case of 1000 tasks
         newValues.addtask = tasknum;
-        var matchTask2 = Store.findBy(function(record, id) {
+        var matchTask2 = Store.findBy(function(record) {
             //requires editing
             for (this.subtasknum = 0; this.subtasknum < 10; this.subtasknum++)
             if (record.get('area') == newValues.addTaskArea && record.get('workType') == newValues.addTaskType && record.get('craft') == newValues.addTaskCraft && record.get('task') == newValues.addtask && record.get('subtask') != subtasknum) {
