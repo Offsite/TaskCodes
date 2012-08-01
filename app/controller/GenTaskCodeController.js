@@ -53,7 +53,7 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         //Check if Task Description already exists, find open task/subtask
         var tasknum = 0;
         var subtasknum = 0;
-        var matchTask = taskcodeStore.findBy(function(record, id) {
+        var matchTask = this.taskcodeStore.findBy(function(record, id) {
             //requires editing
             for (this.tasknum = 0; this.tasknum < 100; this.tasknum++)
             if (record.get('area') == newValues.addTaskArea && record.get('workType') == newValues.addTaskType && record.get('craft') == newValues.addTaskCraft && record.get('task') != this.tasknum) {
@@ -64,7 +64,7 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         if (matchTask = true) {
             newValues.addtask = tasknum;
         }
-        var matchTask2 = taskcodeStore.findBy(function(record, id) {
+        var matchTask2 = this.taskcodeStore.findBy(function(record, id) {
             //requires editing
             for (this.subtasknum = 0; this.subtasknum < 10; this.subtasknum++)
             if (record.get('area') == newValues.addTaskArea && record.get('workType') == newValues.addTaskType && record.get('craft') == newValues.addTaskCraft && record.get('task') == newValues.addtask && record.get('subtask') != subtasknum) {
