@@ -155,16 +155,6 @@ Ext.define('TaskCodes.view.addtaskcode', {
                         itemTpl: '{plchldr}',
                         data: 
                         [
-                            {plchldr: '00-00-00-000'},
-                            {plchldr: '00-00-00-001'},
-                            {plchldr: '00-00-00-011'},
-                            {plchldr: '00-00-00-111'},
-                            {plchldr: '00-00-01-111'},
-                            {plchldr: '00-00-11-111'},
-                            {plchldr: '00-01-11-111'},
-                            {plchldr: '00-11-11-111'},
-                            {plchldr: '01-11-11-111'},
-                            {plchldr: '11-11-11-111'}
                         ]
                     }
                 ]    

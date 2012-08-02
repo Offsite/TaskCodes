@@ -53,8 +53,8 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         //Check if Task Description already exists, find open task/subtask
         var tasknum = 0;
         var subtasknum = 0;
-        var Store = Ext.getStore('taskcodeStore');
-        var matchTask = Store.findBy(function(record) {
+        var taskcodeLocalStore = Ext.getStore('taskcodeLocalStore');
+        var matchTask = taskcodeLocalStore.findBy(function(record) {
             //requires editing
             for (this.tasknum = 0; this.tasknum < 100; this.tasknum++)
             {
@@ -66,7 +66,7 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         console.log('fin1');
         //this system does not handle the case of 1000 tasks
         newValues.addtask = tasknum;
-        var matchTask2 = Store.findBy(function(record) {
+        var matchTask2 = taskcodeLocalStore.findBy(function(record) {
             //requires editing
             for (this.subtasknum = 0; this.subtasknum < 10; this.subtasknum++)
             {
@@ -80,7 +80,7 @@ Ext.define("TaskCodes.controller.GenTaskCodeController", {
         console.log(matchTask2);
         console.log(tasknum);
         console.log(subtasknum);
-        newValues.addsubtask = subtasknum
+        newValues.addsubtask = subtasknum;
         Store.add(newValues);
         Store.sync();
         addTaskCodeView.setValues({
